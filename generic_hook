@@ -1,0 +1,11 @@
+#!/bin/bash
+
+script_name=$(basename "$0")
+bare=$(git config --get core.bare)
+
+[ "$bare" = "true" ] && hooks_path="$(pwd)/hooks/${script_name}"
+[ "$bare" = "false" ] && hooks_path="$(pwd)/.git/hooks/${script_name}"
+
+echo "Global ${script_name}"
+
+[ -x "${hooks_path}" ] && "${hooks_path}" "$@" < /dev/stdin

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo "> Local $(basename "$0")"
+echo "> args:" "$@"
+echo "> stdin:" "$(cat -)"
