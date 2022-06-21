@@ -7,5 +7,8 @@ bare=$(git config --get core.bare)
 [ "$bare" = "false" ] && hooks_path="$(pwd)/.git/hooks/${script_name}"
 
 echo "Global ${script_name}"
+echo "$hooks_path"
 
 [ -x "${hooks_path}" ] && "${hooks_path}" "$@" < /dev/stdin
+
+exit 0
