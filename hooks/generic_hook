@@ -6,9 +6,9 @@ function debug() {
 }
 
 function strtobool() {
-    echo "$1" | grep "[Tt]rue" > /dev/null && return 0
-    echo "$1" | grep "[Ff]alse" > /dev/null && return 1
-    return 1
+    echo "$1" | grep "[Tt]rue" > /dev/null && { echo 0; return 0; }
+    echo "$1" | grep "[Ff]alse" > /dev/null && { echo 1; return 1; }
+    echo 1; return 1;
 }
 
 # @description Run a hook
